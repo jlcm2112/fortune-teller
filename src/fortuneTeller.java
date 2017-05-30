@@ -9,42 +9,37 @@ public class FortuneTeller {
 
 		Scanner scanner = new Scanner(System.in); // open input
 
-		// declare variables
-		boolean useFortuneTeller, needsHelp; // loop conditionals
-		int age, month, retire, siblings;
-		double savings;
-		String test, firstName, lastName, location, car, favColor;
-
 		// ************* Part I *************
 
+		boolean useFortuneTeller;
 		do {
 			System.out.println("What is your first name? "); // prompt user
-			test = scanner.next(); // get input
+			String test = scanner.next(); // get input
 			checkForQuit(test); // test input to see if user wants to quit
-			firstName = test; // store input into variable
+			String firstName = test; // store input into variable
 
 			System.out.println("What is your last name? ");
 			test = scanner.next();
 			checkForQuit(test);
-			lastName = test;
+			String lastName = test;
 
 			System.out.println("How old are you? ");
 			test = scanner.next();
 			checkForQuit(test);
-			age = Integer.parseInt(test);
+			int age = Integer.parseInt(test);
 
 			System.out.println("In which month were you born? (please use the numerical month or I can't read your fortune)\nExample: for November, enter 11. ");
 			test = scanner.next();
 			checkForQuit(test);
-			month = Integer.parseInt(test);
+			int month = Integer.parseInt(test);
 
 			System.out.println(
 					"Which of the ROYGBIV colors are your favorite? (If you don't know what ROYGBIV is, enter \"Help\")");
 			test = scanner.next();
 			checkForQuit(test);
 
-			needsHelp = false;
-			favColor = "other"; // initializing variables
+			boolean needsHelp = false;
+			String favColor = "other"; // initializing variables
 
 			if (test.equalsIgnoreCase("help")) { // if the user typed help in
 													// any case...
@@ -71,39 +66,42 @@ public class FortuneTeller {
 			System.out.println("How many siblings do you have?"); // siblings
 			test = scanner.next();
 			checkForQuit(test);
-			siblings = Integer.parseInt(test);
+			int siblings = Integer.parseInt(test);
 
 			// ************* Part II *************
 
+			int retire;
 			if (age % 2 == 0) { // if age is even or odd, assign stuff
-				retire = 30;
+				 retire = 30;
 			} else {
-				retire = 40;
+				 retire = 40;
 			}
 
+			String location;
 			switch (siblings) { // if siblings = 0, 1, 2, 3, >3, assign
 								// stuff
 			case 0:
-				location = "Bacelona";
+				 location = "Bacelona";
 				break;
 
 			case 1:
-				location = "Fiji";
+				 location = "Fiji";
 				break;
 
 			case 2:
-				location = "Buenos Aires";
+				 location = "Buenos Aires";
 				break;
 
 			case 3:
-				location = "Kyoto";
+				 location = "Kyoto";
 				break;
 
 			default:
-				location = "Hades";
+				 location = "Hades";
 				break;
 			}
 
+			String car;
 			switch (favColor.toLowerCase()) { // for their favColor assign car
 												// stuff
 			case "red":
@@ -138,7 +136,8 @@ public class FortuneTeller {
 				car = "Toyota Prius";
 				break;
 			}
-
+			
+			double savings;
 			if (month > 0 && month <= 4) { // for birth month, assign savings
 				savings = 40000.00;
 				
